@@ -2,11 +2,168 @@
 	<head>
 	  <meta charset="UTF-8">
 	  <script language="javascript" type="text/javascript" src="p5.js"></script>
-
+	  
 	  <script language="javascript" type="text/javascript" src="sketch.js"></script>
-	  <style> body {padding: 0; margin: 0;} </style>
-	</head>
-	<body>
+	  <style>
+		  body{
+			  margin: 0;
+			  padding: 0;
+		  }
+		canvas{
+			/* opacity: 0; */
+			/* transition: 1s; */
+		}
 
+		input[type=range] {
+    -webkit-appearance: none;
+    
+    border-radius: 10px; /*这个属性设置使填充进度条时的图形为圆角*/
+}
+
+#objectBar::-webkit-slider-thumb{
+	background: rgb(216, 107, 5);
+}
+
+#emotionBar::-webkit-slider-thumb{
+	background: rgb(205, 216, 205);
+}
+
+#dataBar::-webkit-slider-thumb{
+	background: rgb(10, 182, 10);
+}
+
+#dreamBar::-webkit-slider-thumb{
+	background: rgb(85, 158, 255);
+}
+
+#exploreBar::-webkit-slider-thumb{
+	background: rgb(189, 4, 4);
+}
+
+
+
+		input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    margin-top: 0px; /*使滑块超出轨道部分的偏移量相等*/
+    background:white;
+	border: 2px solid white;
+    border-radius: 50%; /*外观设置为圆形*/
+    
+    
+}
+		
+		#controlBox{
+			position: absolute;
+			transition: 1s;
+			opacity: 0;
+			padding: 10px;
+		}
+		
+		#welcome{
+			transition: .3s;
+			height: 100vh;
+			width: 100vw;
+			position: absolute;
+			top: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		#title1{
+			padding: 50px 300px;
+			display: flex;
+			justify-content: space-between;
+			font-size: 50pt;
+			padding-bottom: 0;
+		}
+
+		#desc{
+			width: 300px;
+			padding: 30px;
+			/* padding-bottom: 0; */
+			align-self: flex-end;
+			line-height: 30px;
+			/* text-align: justify; */
+			text-align: right;
+			/* border: 1px solid black; */
+		}
+
+		.words{
+			display: flex;
+			flex-direction: column;
+		}
+
+		.sm{
+			font-size: 15pt;
+		}
+
+		.ssm{
+			font-size: 9pt;
+		}
+
+		#btnBox{
+			display: flex;
+			justify-content: center;
+			transform: translateY(20px);
+			
+		}
+		#btn{
+			text-align: center;
+			animation: bgAni 3s infinite alternate;
+			border: none;
+			border: 1px solid black;
+			padding: 60px 40px;
+			border-radius: 100px;
+			cursor: pointer;
+			
+		}
+
+		#btn:focus{
+			/* border: none; */
+			outline:none;
+		}
+
+		#info{
+			padding: 10px 30px;
+			display: flex;
+			justify-content: space-between;
+			color:grey
+		}
+
+		@keyframes bgAni {
+			0%{background: white;transform: scale(1);}
+			100%{background: rgb(204, 204, 204);transform: scale(1.12);}
+		}
+	</style>
+	</head>
+
+	<body>
+		<div id="welcome">
+			<div id="title1">
+				<div class="words"><span class="lg">断</span><span class="sm">Refuse</span></div>
+				<div class="words"><span class="lg">舍</span><span class="sm">Dispose</span></div>
+				<div class="words"><span class="lg">离</span><span class="sm">Separate</span></div>
+			</div>
+			<div id="btnBox">
+				<button id="btn">Explore it</button>
+			</div>
+			<div id="desc">
+				Using the visual impact brought by the image and its connotation to stimulate people’s comprehension and reflection about the concept of Danshari.
+			</div>
+			<div id="info">
+				<p>R E F L E C T</p>
+				<p>Human Computer Interaction</p>
+				<p class="ssm">Made With P5.js Made by ZhuoRui Wu</p>
+			</div>
+		</div>
+		<div id="controlBox">
+			<input min=0 max=1023 value=1023 defaultValue=1023 id="objectBar" class="controlBar" type="range">
+			<input min=0 max=1023 value=1023 defaultValue=1023 id="emotionBar" class="controlBar" type="range">
+			<input min=0 max=1023 value=1023 defaultValue=1023 id="dataBar" class="controlBar" type="range">
+			<input min=0 max=1023 value=1023 defaultValue=1023 id="dreamBar" class="controlBar" type="range">
+			<input min=0 max=1023 value=1023 defaultValue=1023 id="exploreBar" class="controlBar" type="range">
+		</div>
 	</body>
 </html>
